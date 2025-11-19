@@ -1,0 +1,78 @@
+:root {
+  --accent-grad: linear-gradient(135deg,#6e8efb,#a777e3);
+  --bg-dark: #0e0e10;
+  --panel: rgba(255,255,255,0.04);
+  --muted: #bdbdbd;
+  --done-color: #4caf50;
+  --light-bg: #f5f5f5;
+  --light-text: #111;
+  --chat-user: #6e8efb;
+  --chat-system: #444;
+}
+
+body, html {
+  margin:0; padding:0; height:100%; overflow-x:hidden;
+  font-family:"Segoe UI", sans-serif;
+  background: var(--bg-dark); color:#fff;
+  transition: background 0.3s, color 0.3s;
+}
+.light-theme{background:var(--light-bg); color:var(--light-text);}
+#bgCanvas{position:fixed;left:0;top:0;width:100%;height:100%; z-index:-1;}
+
+.container{max-width:1000px; margin:0 auto; padding:36px 18px;}
+.header{display:flex; justify-content:space-between; align-items:center}
+h1{font-size:2rem; margin:0; background: var(--accent-grad); background-clip:text; color:transparent; -webkit-background-clip:text}
+#themeToggle{background:none; border:none; color:#fff; font-size:1.2rem; cursor:pointer; padding:6px; border-radius:8px; transition:color .3s;}
+.light-theme #themeToggle{color:#111;}
+#cronometro{text-align:center; margin:14px 0; font-weight:700; color:#80cbc4}
+
+/* Buttons */
+.buttons{text-align:center;margin-bottom:18px}
+.buttons button{background:var(--accent-grad);border:none;color:#fff;padding:8px 14px;border-radius:10px;margin:0 6px;cursor:pointer;transition:transform .15s, background .3s}
+.buttons button:hover{transform:translateY(-3px)}
+
+/* Progress */
+.progress-container{display:flex;align-items:center;gap:10px;margin:12px 0;position:relative;flex-wrap:wrap}
+.progress-bar{flex:1;height:18px;background:rgba(255,255,255,0.06);border-radius:10px;overflow:hidden;position:relative;}
+.progress-fill{width:0;height:100%;background:var(--accent-grad);transition:width .5s;}
+#progressText{min-width:40px;text-align:right;font-weight:700}
+#score{min-width:120px;text-align:right;font-weight:700;color:#ffd700}
+
+/* Topics */
+#topics{list-style:none;padding:0;margin:16px 0}
+.topic{background:var(--panel);padding:14px;border-radius:10px;margin-bottom:12px;transition:all .3s;position:relative;cursor:pointer;}
+.topic:hover{transform: scale(1.02); box-shadow:0 6px 20px rgba(0,0,0,0.4);}
+.topic.done .title{text-decoration:line-through;color:#bdbdbd;position:relative;overflow:hidden;}
+.topic.done .title::after {content: ''; position: absolute; left:0; top:50%; width:100%; height:2px; background:#4caf50; transform:scaleX(0); transform-origin:left; animation: strike 0.5s forwards;}
+@keyframes strike {0% { transform: scaleX(0); } 100% { transform: scaleX(1); }}
+.topic-header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.title{font-weight:700}
+.exercise{display:none;margin-top:10px}
+.exercise textarea{width:100%;height:100px;background:rgba(255,255,255,0.03);border:none;color:#fff;padding:10px;border-radius:8px;resize:vertical;margin-top:8px}
+.exercise button{margin-top:8px;padding:8px 12px;border:none;border-radius:8px;background:var(--accent-grad);color:#fff;cursor:pointer}
+.btn-done{background: var(--done-color); border:none; color:#fff; padding:4px 8px; border-radius:6px; cursor:pointer;}
+
+/* Projetos */
+.projects{display:flex;flex-wrap:wrap;gap:20px;margin-top:16px;}
+.project-card{flex:1 1 200px;background: linear-gradient(145deg,#0f1c3f,#192a5b);padding:20px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.5);color:#fff;cursor:pointer;transition: transform 0.3s, box-shadow 0.3s;}
+.project-card h3{margin:0 0 8px 0;font-size:1.2rem;color:#81d4fa;}
+.project-card p{margin:0;font-size:0.95rem;color:#cfd8dc;}
+.project-card:hover{transform: translateY(-6px); box-shadow: 0 12px 28px rgba(0,0,0,0.6);}
+
+/* Diário estilo Chat */
+.chat-journal{flex:1;min-width:280px;background:var(--panel);padding:14px;border-radius:10px;display:flex;flex-direction:column;height:350px;}
+#chatBox{flex:1;overflow-y:auto;padding:10px;display:flex;flex-direction:column;gap:8px;}
+.chat-message{max-width:70%;padding:8px 12px;border-radius:12px;animation:fadeSlide 0.4s;}
+.chat-user{background:var(--chat-user);color:#fff;align-self:flex-end;border-bottom-right-radius:0;}
+.chat-system{background:var(--chat-system);color:#fff;align-self:flex-start;border-bottom-left-radius:0;}
+.chat-input{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap;}
+#chatInput{flex:1;padding:8px;border-radius:8px;border:none;resize:none;background:rgba(255,255,255,0.05);color:#fff;}
+#chatInput:focus{outline:none;}
+#sendBtn, #resetChatBtn{padding:8px 12px;border-radius:8px;border:none;background:var(--accent-grad);cursor:pointer;color:#fff;transition:transform .15s;}
+#sendBtn:hover, #resetChatBtn:hover{transform:translateY(-2px);}
+#resetChatBtn{background:#f44336;}
+@keyframes fadeSlide{0%{opacity:0; transform:translateY(10px);}100%{opacity:1; transform:translateY(0);}}
+@keyframes progressFlash {0%{box-shadow:0 0 0 rgba(76,175,80,0.7);}50%{box-shadow:0 0 10px rgba(76,175,80,1);}100%{box-shadow:0 0 0 rgba(76,175,80,0);}}
+
+
+

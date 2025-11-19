@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Painel de Estudos de Java</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="bgCanvas"></canvas>
+
+<div class="container">
+  <div class="header">
+    <h1>Guia Completo de Estudos de Java ☕</h1>
+    <button id="themeToggle">🌙</button>
+  </div>
+
+  <div id="cronometro">00:00:00</div>
+  <div class="buttons">
+    <button onclick="startTimer()">Iniciar</button>
+    <button onclick="pauseTimer()">Pausar</button>
+    <button onclick="resetTimer()">Resetar</button>
+  </div>
+
+  <div class="progress-container">
+    <span>Progresso:</span>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <span id="progressText">0%</span>
+    <span id="score">Pontuação: 0</span>
+  </div>
+
+  <h2>Tópicos de Java</h2>
+  <ul id="topics"></ul>
+
+  <h2>💡 Projetos Práticos</h2>
+  <div class="projects">
+    <div class="project-card">
+      <h3>Calculadora</h3>
+      <p>Crie uma calculadora básica usando Java.</p>
+    </div>
+    <div class="project-card">
+      <h3>Gerenciador de Tarefas</h3>
+      <p>Implemente um sistema para adicionar, remover e listar tarefas.</p>
+    </div>
+    <div class="project-card">
+      <h3>Jogo da Adivinhação</h3>
+      <p>Crie um jogo em que o usuário tenta adivinhar um número.</p>
+    </div>
+    <div class="project-card">
+      <h3>Agenda de Contatos</h3>
+      <p>Construa uma agenda para armazenar nomes, telefones e emails.</p>
+    </div>
+    <div class="project-card">
+      <h3>Simulador de Banco</h3>
+      <p>Simule operações bancárias como depósito, saque e saldo.</p>
+    </div>
+  </div>
+
+  <h2>📘 Meu Diário de Estudos (Chat)</h2>
+  <div class="study-area">
+    <div class="chat-journal">
+      <div id="chatBox"></div>
+      <div class="chat-input">
+        <textarea id="chatInput" placeholder="Escreva sobre seus estudos..."></textarea>
+        <button id="sendBtn">Enviar</button>
+        <button id="resetChatBtn">Resetar Diário</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
